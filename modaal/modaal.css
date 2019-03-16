@@ -1,0 +1,131 @@
+body {
+  font-family: sans-serif;
+  position: relative;
+  margin: 0;
+  background-color: #2e3035;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-gap: 1em;
+  padding: 1.2em;
+  justify-items: center;
+}
+
+/* De modaalContent in de wrapper bij voorbaat verbergen */
+.wrapper .modaalContent {
+  display: none;
+}
+
+/*h1 zo breed als het maar kan, behalve 2 gridcellen voor login en registreren*/
+h1 {
+  grid-column: 1/-3;
+  color: #fff;
+}
+
+img, form {
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
+}
+
+/* de afbeeldingen va de modale knoppen wat verkleinen */
+img.modaal-knop {
+  max-width: 150px;
+  transition: transform .3s ease-out, box-shadow .4s ease-out;
+}
+
+.duurtijd {
+  float: right;
+  padding-right: 5px;
+  font-style: italic;
+}
+
+img.modaal-knop:hover {
+  transform: scale(1.1);
+  box-shadow: .5em .5em 2em rgba(0, 0, 0, 0.5);
+}
+
+.modaal-knop {
+  cursor: pointer;
+  color: #Fff;
+}
+
+.modaal-knop:hover {
+  color: white;
+}
+
+/* Het album opmaken */
+.album {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 80vw;
+  grid-gap: 1.5em;
+}
+.grid img {
+  max-width: 100%;
+}
+
+/* het modale venster aanmaken */
+.modaal-achtergrond {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+
+.modaal {
+  max-width: 80%;
+  padding: 2em;
+  border-radius: 1em;
+  background-color: #fff;
+  max-height: 100vh;
+  overflow-y: auto;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  grid-row-gap: 1em;
+  animation: opkomen 1s ease-in-out forwards;
+}
+
+@keyframes opkomen {
+  0% {
+    transform: scale(0)
+  }
+
+  20% {
+    transform: scale(1.2);
+  }
+
+  70% {
+    transform: scale(0.9997);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.sluit-knop {
+  width: 2em;
+  justify-self: end;
+  font-size: 2em;
+  font-weight: 900;
+  transform: translateX(.5em);
+  border: 0;
+  background-color: #FFF;
+}
+
+.sluit-knop:hover {
+  color: grey;
+}
+
+#validatie {
+  padding-top: 18em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
